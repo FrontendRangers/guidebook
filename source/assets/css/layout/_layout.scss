@@ -1,0 +1,60 @@
+.app {
+  display: table;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app-header {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  clear: both;
+  height: 60px;
+  @include background(linear-gradient(center top , #F8F8F8, #D6D6D6));
+}
+
+.app-title {
+  @extend %left;
+  height: 100%;
+}
+
+.app-global-nav {
+  @extend %right;
+  height: 100%;
+}
+
+.app-content {
+  display: table;
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+}
+
+.app-sidebar {
+  position: relative;
+  z-index: 1;
+  display: table-cell;
+  vertical-align: top;
+  width: 240px;
+  background: none repeat scroll 0 0 #EEEEEE;
+  border-top: 1px solid #AFAFAF;
+  * {
+    color: #333;
+  }
+}
+
+.app-main {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.app-utilities {
+  @extend %right;
+}
+
+.main-content {
+  padding: 20px;
+}

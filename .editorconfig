@@ -1,0 +1,13 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+[*.html, *.haml]
+indent_style = space
+indent_size = 2
+
+[*.css, *.scss, *.sass]
+indent_style = space
+indent_size = 2
+
+[*.js, *.coffee]
+indent_style = space
+indent_size = 2

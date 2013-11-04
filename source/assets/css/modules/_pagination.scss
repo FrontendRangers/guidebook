@@ -1,0 +1,31 @@
+nav.pagination {
+  ul {
+    text-align: center;
+  }
+
+  ul li {
+    display: inline;
+    margin: 0 4px 0 0;
+  }
+
+  ul li a {
+    padding: 3px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333333;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 4px;
+  }
+
+  ul li a:hover,
+  ul li a:focus {
+    background: #f0f0f0;
+    border-color: #ccc;
+  }
+
+  ul li a:active {
+    background: #fff;
+    border-color: #ddd;
+  }
+}
