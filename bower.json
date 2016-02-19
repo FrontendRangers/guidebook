@@ -1,0 +1,22 @@
+{
+  "name": "Guidebook",
+  "description": "A styleguide boilerplate.",
+  "main": "gulpfile.js",
+  "authors": [
+    "Benoit Deziel"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/benoitdeziel/guidebook",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.2.4"
+  }
+}
