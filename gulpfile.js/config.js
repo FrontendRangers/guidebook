@@ -8,6 +8,9 @@ module.exports = {
   dest: dest,
   libs: libs,
   styleguide: {
+    metadata: {
+        title: "Guidebook"
+    },
     collections: {
       components: {
         pattern: "components/*.md"

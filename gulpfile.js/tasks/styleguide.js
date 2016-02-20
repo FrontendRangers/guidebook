@@ -27,6 +27,9 @@ var styleguideDocsTask = function() {
 			"templates/*"
 		]))
 		.use(msCollections(config.collections))
+        .metadata({
+            site: config.metadata,
+        })
 		.use(msMarkdown())
 		.use(msPermalinks())
         .use(msHighlight())
@@ -44,8 +47,9 @@ var styleguideDocsTask = function() {
 
 var styleguideStylesTask = function() {
     return gulp.src(config.path.src.styles + '/*.scss')
-        .pipe(sass())
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(config.path.dest.styles))
+        .pipe(browserSync.stream());
 }
 
 

@@ -2,17 +2,27 @@
 // Guidebook
 // v1.0.0
 // ==========================================================================
+
 @import "normalize";
 @import "syntax";
 
-pre {
-  font-family: 'Roboto Mono', monospace;
-  padding: 2em;
-  background-color: #f9f9f9;
-  color: #555555;
-  code {
-    font-family: 'Roboto Mono', monospace;
-  }
+//
+// Variables
+// ==========================================================================
+
+$sg-header-bg-color: #c7c7c7;
+$sg-sidebar-bg-color: #f9f9f9;
+$sg-content-bg-color: #ffffff;
+$sg-footer-bg-color: #c7c7c7;
+
+//
+// Globals
+// ==========================================================================
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
 html {
@@ -26,10 +36,14 @@ html {
 .sg {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .sg-header {
     padding: 1em;
+    background-color: $sg-header-bg-color;
 }
 
 .sg-main {
@@ -39,7 +53,8 @@ html {
 }
 
 .sg-footer {
-
+    padding: 1em;
+    background-color: $sg-footer-bg-color;
 }
 
 //
@@ -56,6 +71,7 @@ html {
 
 .sg-sidebar {
     padding: 1em;
+    background-color: $sg-sidebar-bg-color;
 }
 
 .sg-nav {
@@ -78,4 +94,28 @@ html {
 .sg-nav-section {
     font-weight: 700;
     text-transform: uppercase;
+}
+
+//
+// Content
+// ==========================================================================
+
+.sg-content {
+    flex: 1;
+    padding: 1em;
+    background-color: $sg-content-bg-color;
+}
+
+//
+// Code block
+// ==========================================================================
+
+pre {
+  font-family: 'Roboto Mono', monospace;
+  padding: 2em;
+  background-color: #f7f7f7;
+  color: #555555;
+  code {
+    font-family: 'Roboto Mono', monospace;
+  }
 }
