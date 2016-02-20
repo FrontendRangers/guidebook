@@ -26,7 +26,6 @@ module.exports = {
         layouts: src + 'styleguide/templates/',
         components: src + 'styleguide/components/',
         partials: src + 'styleguide/partials/',
-        helpers: src + 'styleguide/',
         styles: src + 'styleguide/styles/',
         watch: [src + 'docs/**/*', src + 'styleguide/**/*'],
       },
