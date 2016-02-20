@@ -2,7 +2,8 @@
 
 var config = require('../config').styleguide,
     gulp = require('gulp'),
-    browserSync = require('browser-sync')
+    browserSync = require('browser-sync');
+    
 var serverTask = function() {
     browserSync.init({
         logPrefix: "Guidebook",

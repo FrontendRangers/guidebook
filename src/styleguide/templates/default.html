@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>{{title}} | Styleguide</title>
-</head>
-<body>
-	<header><h1 class="sg">{{title}} the amazing styleguide</h1></header>
-	<nav>
-		<ul>
-			{{#each collections }}
-	            <li>
-	                <h3>{{ @key }}</h3>
-					<ul>
-						{{#each this }}
-							<li>
-								<a href="{{ this.path }}">{{ this.title }}</a>
-							</li>
-						{{/each}}
-					</ul>
-	            </li>
-	        {{/each}}
-		</ul>
-	</nav>
-	<h2>Let's go!</h2>
-	{{{contents}}}
-</body>
-</html>
+{{> head}}
+{{> header}}
+<div class="sg-main">
+    {{> sidebar}}
+    <div class="sg-content">
+        {{{contents}}}
+    </div>
+</div>
+{{> footer}}

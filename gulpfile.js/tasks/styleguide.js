@@ -3,7 +3,6 @@
 var config        = require('../config').styleguide,
     gulp          = require('gulp'),
     plumber       = require('gulp-plumber'),
-    browserSync   = require("browser-sync"),
     rename        = require('gulp-rename'),
     handlebars    = require('handlebars'),
     metalsmith    = require('metalsmith'),
@@ -13,10 +12,12 @@ var config        = require('../config').styleguide,
     msLayouts     = require('metalsmith-layouts'),
     msMarkdown    = require('metalsmith-markdown-remarkable'),
     msPermalinks  = require('metalsmith-permalinks'),
+    msHighlight   = require('metalsmith-code-highlight'),
+    sass          = require("gulp-sass"),
     browserSync   = require('browser-sync'),
     reload        = browserSync.reload;
 
-var styleguideTask = function() {
+var styleguideDocsTask = function() {
     metalsmith(config.path.root)
 		.source(config.path.src.pages)
         .destination(config.path.dest.pages)
@@ -28,6 +29,7 @@ var styleguideTask = function() {
 		.use(msCollections(config.collections))
 		.use(msMarkdown())
 		.use(msPermalinks())
+        .use(msHighlight())
 		.use(msLayouts({
 			engine: 'handlebars',
 			directory: config.path.src.layouts,
@@ -40,10 +42,21 @@ var styleguideTask = function() {
 		.build(reload);
 };
 
+var styleguideStylesTask = function() {
+    return gulp.src(config.path.src.styles + '/*.scss')
+        .pipe(sass())
+        .pipe(gulp.dest(config.path.dest.styles))
+}
 
-gulp.task('styleguide', function() {
-	return styleguideTask();
-});
 
+gulp.task('styleguide', ['styleguide:docs', 'styleguide:styles']);
 
-module.exports = styleguideTask;
+gulp.task('styleguide:docs', function() {
+    return styleguideDocsTask();
+})
+
+gulp.task('styleguide:styles', function() {
+    return styleguideStylesTask();
+})
+
+// module.exports = styleguideTask;

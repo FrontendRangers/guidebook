@@ -1,0 +1,81 @@
+// ==========================================================================
+// Guidebook
+// v1.0.0
+// ==========================================================================
+@import "normalize";
+@import "syntax";
+
+pre {
+  font-family: 'Roboto Mono', monospace;
+  padding: 2em;
+  background-color: #f9f9f9;
+  color: #555555;
+  code {
+    font-family: 'Roboto Mono', monospace;
+  }
+}
+
+html {
+  font-family: 'Roboto';
+}
+
+//
+// Layout
+// ==========================================================================
+
+.sg {
+    display: flex;
+    flex-direction: column;
+}
+
+.sg-header {
+    padding: 1em;
+}
+
+.sg-main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.sg-footer {
+
+}
+
+//
+// Header
+// ==========================================================================
+
+.sg-title {
+    margin: 0;
+}
+
+//
+// Navigation
+// ==========================================================================
+
+.sg-sidebar {
+    padding: 1em;
+}
+
+.sg-nav {
+    padding: 0;
+    margin: 0 0 1em 0;
+    list-style: none;
+    .sg-nav-item {
+
+    }
+}
+
+.sg-subnav {
+    padding: 0;
+    list-style: none;
+    .sg-subnav-item {
+        margin-bottom: 1em;
+    }
+}
+
+.sg-nav-section {
+    font-weight: 700;
+    text-transform: uppercase;
+}
