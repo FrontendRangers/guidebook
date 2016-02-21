@@ -2,6 +2,7 @@
 
 var config = require('../config').styleguide,
   gulp = require('gulp'),
+  runSequence = require('run-sequence'),
   handlebars = require('handlebars'),
   metalsmith = require('metalsmith'),
   msCollections = require('metalsmith-collections'),
@@ -54,12 +55,37 @@ var styleguideStylesTask = function () {
     .pipe(browserSync.stream());
 }
 
-gulp.task('styleguide', ['styleguide:docs', 'styleguide:styles']);
+var styleguideAssetsTask = function() {
+    return gulp.src([config.path.src.components + '*.html'])
+        .pipe(gulp.dest(config.path.dest.components));
+}
+
+var styleguideLibsTask = function() {
+    return gulp.src([config.path.src.libs + '**/*'])
+        .pipe(gulp.dest(config.path.dest.libs));
+}
+
+gulp.task('styleguide', function(callback) {
+    runSequence(
+        'styleguide:docs',
+        'styleguide:styles',
+        'styleguide:assets',
+        'styleguide:libs',
+        callback);
+});
 
 gulp.task('styleguide:docs', function () {
   return styleguideDocsTask();
-})
+});
+
+gulp.task('styleguide:libs', function () {
+  return styleguideLibsTask();
+});
+
+gulp.task('styleguide:assets', function () {
+  return styleguideAssetsTask();
+});
 
 gulp.task('styleguide:styles', function () {
   return styleguideStylesTask();
-})
+});

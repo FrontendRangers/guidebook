@@ -8,7 +8,7 @@ var markedRenderer = new marked.Renderer();
 markedRenderer.heading = function (text, level) {
   var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
-  var output = format('<sg-heading level="{0}"><a class="sg-anchor" href="#{1}"></a>{2}</sg-heading>', [level, escapedText, text]);
+  var output = format('<h{0} class="sg-heading"><a class="sg-anchor" href="#{1}"></a>{2}</h{0}>', [level, escapedText, text]);
 
   return output;
 };

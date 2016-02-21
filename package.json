@@ -33,6 +33,7 @@
     "metalsmith-permalinks": "^0.4.1",
     "metalsmith-register-helpers": "^0.1.2",
     "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
     "string-template": "^1.0.0"
   }
 }
