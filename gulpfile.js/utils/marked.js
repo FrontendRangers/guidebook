@@ -6,10 +6,13 @@ var markedRenderer = new marked.Renderer();
 
 // Convert headings to styleguide markup
 markedRenderer.heading = function (text, level) {
-  var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+  var output = format('<h{0} class="sg-heading"><a class="sg-anchor" href="#{1}"></a>{2}</h{0}>', [level, text]);
+  return output;
+};
 
-  var output = format('<h{0} class="sg-heading"><a class="sg-anchor" href="#{1}"></a>{2}</h{0}>', [level, escapedText, text]);
-
+// Convert paragraphs to styleguide markup
+markedRenderer.paragraph = function (text) {
+  var output = format('<p class="sg-text">{0}</p>', [text]);
   return output;
 };
 
