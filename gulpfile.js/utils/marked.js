@@ -4,9 +4,15 @@ var marked  = require('marked'),
 
 var markedRenderer = new marked.Renderer();
 
+var escape = function(text) {
+  if (typeof text === 'undefined') return '';
+  return text.toLowerCase().replace(/[^\w]+/g, '-');
+}
+
 // Convert headings to styleguide markup
-markedRenderer.heading = function (text, level) {
-  var output = format('<h{0} class="sg-heading"><a class="sg-anchor" href="#{1}"></a>{2}</h{0}>', [level, text]);
+markedRenderer.heading = function (text, level, anchor) {
+  var escapedText = anchor ? escape(anchor) : escape(text);
+  var output = format('<h{0} class="sg-heading"><a class="sg-anchor" href="#{1}"></a>{2}</h{0}>', [level, escapedText, text]);
   return output;
 };
 

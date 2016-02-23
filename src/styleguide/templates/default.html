@@ -3,8 +3,26 @@
 <div class="sg-main">
     {{> sidebar}}
     <div class="sg-content">
-        <h1 class="sg-page-title">{{ title }}</h1>
-        {{{contents}}}
+        <div class="sg-intro">
+            <h1 class="sg-page-title">{{ title }}</h1>
+            <p class="sg-page-subtitle">{{ subtitle }}</p>
+            <p class="sg-page-description">
+                {{ description }}
+            </p>
+        </div>
+        <nav class="sg-page-nav">
+            <ul>
+                <li>
+                    <a href="#default">Default</a>
+                </li>
+                <li>
+                    <a href="#default">Variations</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sg-section">
+            {{{contents}}}
+        </div>
     </div>
 </div>
 {{> footer}}
