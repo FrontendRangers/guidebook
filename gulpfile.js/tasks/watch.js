@@ -3,6 +3,6 @@
 var config      = require('../config'),
     gulp        = require('gulp');
 
-gulp.task('watch', function() {
-    gulp.watch(config.styleguide.path.src.watch, ['styleguide']);
+gulp.task('styleguide:watch', function() {
+    gulp.watch(config.styleguide.path.src.watch, ['styleguide:dev']);
 });

@@ -2,6 +2,8 @@
 
 var gulp = require('gulp');
 
-require('require-dir')('./tasks', {recurse: true});
+require('require-dir')('./tasks', {
+    recurse: true
+});
 
-gulp.task('default', ['watch', 'styleguide', 'server']);
+gulp.task('default', ['styleguide:watch', 'styleguide:dev', 'styleguide:server']);

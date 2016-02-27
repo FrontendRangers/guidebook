@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
 var config = require('../config').styleguide,
     gulp = require('gulp'),
     browserSync = require('browser-sync');
-    
-var serverTask = function() {
+
+var serverTask = function () {
     browserSync.init({
         logPrefix: "Guidebook",
         server: {
@@ -12,10 +12,10 @@ var serverTask = function() {
         },
         open: false
     });
-}
+};
 
-gulp.task('server', function() {
-	return serverTask();
+gulp.task('styleguide:server', function () {
+    return serverTask();
 });
 
 module.exports = serverTask;
