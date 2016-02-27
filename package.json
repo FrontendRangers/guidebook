@@ -13,10 +13,9 @@
         "type": "git",
         "url": "https://github.com/benoitdeziel/guidebook.git"
     },
-    "devDependencies": {
+    "dependencies": {
         "bower": "^1.7.7",
         "browser-sync": "^2.11.1",
-        "gulp": "3.9.0",
         "gulp-conflict": "^0.4.0",
         "gulp-gh-pages": "^0.5.4",
         "gulp-if": "^2.0.0",
@@ -39,5 +38,8 @@
         "require-dir": "^0.3.0",
         "run-sequence": "^1.1.5",
         "string-template": "^1.0.0"
+    },
+    "devDependencies": {
+        "gulp": "3.9.0"
     }
 }
