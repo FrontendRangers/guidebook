@@ -12,12 +12,11 @@
         </div>
         <nav class="sg-page-nav">
             <ul>
-                <li>
-                    <a href="#default">Default</a>
-                </li>
-                <li>
-                    <a href="#default">Variations</a>
-                </li>
+                {{#each headings}}
+                    <li>
+                        <a href="#{{this.id}}">{{this.text}}</a>
+                    </li>
+                {{/each}}
             </ul>
         </nav>
         <div class="sg-section">
