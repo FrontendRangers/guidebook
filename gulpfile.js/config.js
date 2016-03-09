@@ -17,6 +17,9 @@ module.exports = {
             },
             modules: {
                 pattern: "modules/*.md"
+            },
+            templates: {
+                pattern: "templates/*.html"
             }
         },
         path: {

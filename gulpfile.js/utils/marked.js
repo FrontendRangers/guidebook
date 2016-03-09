@@ -17,7 +17,7 @@ var escape = function (text) {
 // Convert headings to styleguide markup
 markedRenderer.heading = function (text, level, anchor) {
     var escapedText = anchor ? escape(anchor) : escape(text);
-    var output = format('<h{0} class="sg-heading"><a class="sg-anchor" href="#{1}"></a>{2}</h{0}>', [level, escapedText, text]);
+    var output = format('<h{0} class="sg-heading" id="{1}">{2}</h{0}>', [level, escapedText, text]);
     return output;
 };
 

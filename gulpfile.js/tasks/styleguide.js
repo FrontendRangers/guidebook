@@ -6,6 +6,7 @@ var config = require('../config').styleguide,
     handlebars = require('handlebars'),
     metalsmith = require('metalsmith'),
     msCollections = require('metalsmith-collections'),
+    msHeadings = require('metalsmith-headings'),
     msIgnore = require('metalsmith-ignore'),
     msInPlace = require('metalsmith-in-place'),
     msLayouts = require('metalsmith-layouts'),
@@ -22,8 +23,7 @@ var styleguideDocsTask = function () {
         .destination(config.path.dest.pages)
         .clean(true)
         .use(msIgnore([
-            "assets/*",
-            "templates/*"
+            "assets/*"
         ]))
         .use(msCollections(config.collections))
         .metadata({
@@ -35,6 +35,7 @@ var styleguideDocsTask = function () {
             renderer: markedRenderer,
             langPrefix: 'language-'
         }))
+        .use(msHeadings('h2'))
         .use(msPermalinks())
         .use(msLayouts({
             engine: 'handlebars',
