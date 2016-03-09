@@ -5,21 +5,29 @@
     <div class="sg-content">
         <div class="sg-intro">
             <h1 class="sg-page-title">{{ title }}</h1>
+            {{#if subtitle}}
             <p class="sg-page-subtitle">{{ subtitle }}</p>
+            {{/if}}
+            {{#if description}}
             <p class="sg-page-description">
                 {{ description }}
             </p>
+            {{/if}}
+            {{#if status}}
+            <span class="sg-status sg-status--{{status}}">{{status}}</span>
+            {{/if}}
         </div>
+        {{#if headings}}
         <nav class="sg-page-nav">
             <ul>
-                <li>
-                    <a href="#default">Default</a>
-                </li>
-                <li>
-                    <a href="#default">Variations</a>
-                </li>
+                {{#each headings}}
+                    <li>
+                        <a href="#{{this.id}}">{{this.text}}</a>
+                    </li>
+                {{/each}}
             </ul>
         </nav>
+        {{/if}}
         <div class="sg-section">
             {{{contents}}}
         </div>
