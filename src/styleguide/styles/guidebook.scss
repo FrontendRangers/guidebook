@@ -3,43 +3,36 @@
 // v1.0.0
 // ==========================================================================
 
-@import "normalize";
-@import "syntax";
+@import 'syntax';
 
 //
 // Variables
 // ==========================================================================
 
-$sg-header-bg-color: #427DC2;
-$sg-sidebar-bg-color: #3B5069;
-$sg-content-bg-color: #ffffff;
-$sg-intro-bg-color: #f9f9f9;
-$sg-footer-bg-color: #F4F4F4;
+$sg-header-bg-color: #427DC2 !default;
+$sg-sidebar-bg-color: #3B5069 !default;
+$sg-content-bg-color: #ffffff !default;
+$sg-intro-bg-color: #f9f9f9 !default;
+$sg-footer-bg-color: #F4F4F4 !default;
 
-$sg-heading-color: #73797E;
-$sg-heading-font: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$sg-text-color: #323B43;
-$sg-text-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$sg-heading-color: #73797E !default;
+$sg-heading-font: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$sg-text-color: #323B43 !default;
+$sg-text-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
 
-$sg-title-color: #fff;
+$sg-title-color: #fff !default;
 
-$sg-padding: 1.5em;
+$sg-padding: 1.5em !default;
 
 //
 // Globals
 // ==========================================================================
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
-body {
-  font-family: $sg-text-font;
-  color: $sg-text-color;
-  font-size: 16px;
-  line-height: 1.5;
+%sg-font-common {
+    font-family: $sg-text-font;
+    color: $sg-text-color;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 //
@@ -47,25 +40,34 @@ body {
 // ==========================================================================
 
 .sg {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+[class^="sg-"] {
+    box-sizing: border-box;
 }
 
 .sg-header {
+    @extend %sg-font-common;
     padding: ($sg-padding / 2) $sg-padding;
     background-color: $sg-header-bg-color;
 }
 
 .sg-main {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: row;
 }
 
 .sg-footer {
+    @extend %sg-font-common;
     padding: ($sg-padding / 2) $sg-padding;
     background-color: $sg-footer-bg-color;
     color: #aeaeae;
@@ -76,6 +78,7 @@ body {
 // ==========================================================================
 
 .sg-title {
+    @extend %sg-font-common;
     font-size: 1.5rem;
     color: $sg-title-color;
     font-weight: 500;
@@ -90,13 +93,23 @@ body {
     min-width: 260px;
     padding: $sg-padding;
     background-color: $sg-sidebar-bg-color;
+    @media screen and (max-width: 640px) {
+        order: 2;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        transform: translate3d(100%, 0, 0);
+    }
 }
 
 .sg-nav {
     padding: 0;
     margin: 0 0 1em 0;
     list-style: none;
+
     .sg-nav-item {
+        font-family: $sg-heading-font;
         margin-bottom: 1.5rem;
     }
 }
@@ -104,11 +117,13 @@ body {
 .sg-subnav {
     padding: 0;
     list-style: none;
+
     .sg-subnav-item {
         font-family: $sg-heading-font;
         color: #fff;
         font-size: 1rem;
         line-height: 1.75;
+
         a {
             color: inherit;
             text-decoration: none;
@@ -122,7 +137,7 @@ body {
     line-height: 1.5;
     font-weight: 300;
     text-transform: uppercase;
-    color: #AAB3BE;
+    color: #aab3be;
 }
 
 //
@@ -130,7 +145,10 @@ body {
 // ==========================================================================
 
 .sg-content {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    max-width: 100%;
     background-color: $sg-content-bg-color;
 }
 
@@ -142,31 +160,63 @@ body {
 .sg-page-title {
     font-family: $sg-heading-font;
     font-weight: 700;
-    color: #73797E;
+    color: #73797e;
     font-size: 3rem;
     margin: 0 0 1rem 0;
     line-height: 1;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .sg-page-subtitle {
+    font-family: $sg-text-font;
     font-size: 1.375rem;
     margin: 1rem 0 1rem 0;
     line-height: 1.3;
 }
 
+.sg-page-description {
+    font-family: $sg-text-font;
+}
+
+.sg-status {
+    display: inline-block;
+    padding: 0 .75em;
+    border-radius: 100px;
+
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.8;
+    text-transform: uppercase;
+    vertical-align: -1px;
+
+    &--ready {
+        background-color: green;
+    }
+
+    &--inProgress {
+        background-color: red;
+    }
+}
+
 .sg-page-nav {
-    background-color: #EFEFEF;
+    background-color: #efefef;
+
     ul {
         display: flex;
         flex-direction: row;
         list-style: none;
         margin: 0;
         padding: ($sg-padding / 2) $sg-padding;
+
         li {
             padding: 0 1rem 0 0;
+
             a {
                 font-family: $sg-heading-font;
-                color: #6C6C6C;
+                color: #6c6c6c;
                 text-decoration: none;
             }
         }
@@ -181,18 +231,57 @@ body {
 // Typography
 // ==========================================================================
 
-.sg-heading {}
+.sg-heading {
+    @extend %sg-font-common;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+h1.sg-heading {
+    font-size: 3rem;
+}
+
+h2.sg-heading {
+    font-size: 2rem;
+    border-bottom: 1px solid rgba($sg-text-color, .1);
+}
+
+h3.sg-heading {
+    font-size: 1.5rem;
+}
+
+p.sg-text {
+    font-family: $sg-text-font;
+}
 
 //
 // Code block
 // ==========================================================================
 
-pre {
-  font-family: 'Roboto Mono', monospace;
-  padding: 2em;
-  background-color: #f7f7f7;
-  color: #555555;
-  code {
-    font-family: 'Roboto Mono', monospace;
-  }
+.sg-example {
+    margin-bottom: 3rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+}
+
+.sg-example-ui {
+    padding: 2em;
+}
+
+.sg-example-code {
+    padding: 2em;
+    background-color: #f7f7f7;
+    color: #555;
+
+    > pre {
+        box-sizing: border-box;
+        font-family: 'Roboto Mono', monospace;
+        margin: 0;
+        white-space: pre-wrap;
+
+        > code {
+            box-sizing: border-box;
+            font-family: 'Roboto Mono', monospace;
+            white-space: pre-wrap;
+        }
+    }
 }
