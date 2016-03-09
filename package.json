@@ -1,5 +1,5 @@
 {
-    "name": "Guidebook",
+    "name": "guidebook",
     "version": "1.0.0",
     "description": "A styleguide boilerplate.",
     "main": "gulpfile.js",
@@ -40,6 +40,6 @@
         "string-template": "^1.0.0"
     },
     "devDependencies": {
-        "gulp": "3.9.0"
+        "gulp": "^3.9.x"
     }
 }
