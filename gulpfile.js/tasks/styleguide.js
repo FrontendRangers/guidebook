@@ -12,7 +12,9 @@ var config = require('../config').styleguide,
     msLayouts = require('metalsmith-layouts'),
     msMarkdown = require('metalsmith-markdown'),
     msPermalinks = require('metalsmith-permalinks'),
-    markedRenderer = require("../utils/marked"),
+    markedRenderer = require('../utils/marked'),
+    msRootPath = require('metalsmith-rootpath'),
+    msRegisterHelpers = require('metalsmith-register-helpers'),
     sass = require("gulp-sass"),
     browserSync = require('browser-sync'),
     reload = browserSync.reload;
@@ -35,8 +37,12 @@ var styleguideDocsTask = function () {
             renderer: markedRenderer,
             langPrefix: 'language-'
         }))
-        .use(msHeadings('h2'))
+        .use(msHeadings('h2.sg-heading'))
         .use(msPermalinks())
+        .use(msRootPath())
+        .use(msRegisterHelpers({
+            directory: config.helpers
+        }))
         .use(msLayouts({
             engine: 'handlebars',
             directory: config.path.src.layouts,

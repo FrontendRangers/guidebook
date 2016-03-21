@@ -8,18 +8,25 @@ module.exports = {
     dest: dest,
     libs: libs,
     styleguide: {
+        helpers: src + 'styleguide/helpers',
         metadata: {
-            title: "Guidebook"
+            title: 'Guidebook'
         },
         collections: {
+            getting_started: {
+                pattern: 'getting_started/*.md'
+            },
+            base: {
+                pattern: 'base/*.md'
+            },
             components: {
-                pattern: "components/*.md"
+                pattern: 'components/*.md'
             },
             modules: {
-                pattern: "modules/*.md"
+                pattern: 'modules/*.md'
             },
             templates: {
-                pattern: "templates/*.html"
+                pattern: 'templates/*.html'
             }
         },
         path: {

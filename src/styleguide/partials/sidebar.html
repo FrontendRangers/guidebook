@@ -3,11 +3,11 @@
       <ul class="sg-nav">
         {{#each collections }}
           <li class="sg-nav-item">
-            <span class="sg-nav-section">{{ @key }}</span>
+            <span class="sg-nav-section">{{ format @key }}</span>
             <ul class="sg-subnav">
               {{#each this }}
                 <li class="sg-subnav-item">
-                  <a href="/{{ this.path }}">{{ this.title }}</a>
+                  <a href="{{rootPath}}{{ this.path }}">{{ this.title }}</a>
                 </li>
               {{/each}}
             </ul>
