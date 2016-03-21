@@ -13,6 +13,6 @@ The default button
 ## Variations
 A variation of the button
 
-```html
+```html.bgDark
 <button class="Button Button--modifier">Button</button>
 ```

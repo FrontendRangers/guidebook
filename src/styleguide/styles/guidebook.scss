@@ -265,6 +265,9 @@ p.sg-text {
 
 .sg-example-ui {
     padding: 2em;
+    &.sg-bgDark {
+        background-color: $sg-sidebar-bg-color;
+    }
 }
 
 .sg-example-code {

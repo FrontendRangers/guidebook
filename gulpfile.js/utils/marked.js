@@ -32,10 +32,33 @@ markedRenderer.code = function (code, language) {
 
     if (typeof language === 'undefined') language = 'html';
 
-    var outputUi = format('\n\n<div class="sg-example-ui">{0}</div>', [code]);
+    // Put each options in an array
+    var codeOptions = language.split('.');
 
-    var renderedCode = hljs.highlight(language, code).value;
-    var outputCode = format('<div class="sg-example-code"><pre><code class="{0}">{1}</code></pre></div>', [language, renderedCode]);
+    // Remove language from options
+    var languageToRemove = "html";
+    var index = codeOptions.indexOf(languageToRemove);
+
+    if (index !== -1) {
+        codeOptions.splice(index, 1);
+    }
+
+    // Add default class and prepend styleguide namespace
+    var uiClasses = codeOptions;
+    uiClasses.unshift("example-ui");
+
+    for (var i = 0; i < uiClasses.length; i++) {
+      uiClasses[i] = 'sg-'+ uiClasses[i];
+    }
+
+    var uiClassesRendered = uiClasses.join(" ");
+
+    var codeLang = language.split('.')[0];
+
+    var outputUi = format('\n\n<div class="{0}">{1}</div>', [uiClassesRendered, code]);
+
+    var renderedCode = hljs.highlight(codeLang, code).value;
+    var outputCode = format('<div class="sg-example-code"><pre><code class="{0}">{1}</code></pre></div>', [codeLang, renderedCode]);
 
     var outputWrapper = format('<div class="sg-example">{0}{1}</div>', [outputUi, outputCode]);
 
