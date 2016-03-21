@@ -1,5 +1,9 @@
 # Guidebook
-## Styleguide boilerplate
+> Styleguide boilerplate
+
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/benoitdeziel/guidebook)
+
+### Getting started
 
 Run the styleguide
 ```
