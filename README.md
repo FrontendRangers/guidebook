@@ -24,3 +24,9 @@ To contribute
 ```
 npm start
 ```
+
+### TODO
+- [ ] Implement [conventional changelog](https://github.com/gulpjs/gulp/blob/master/docs/recipes/automate-release-workflow.md)
+
+### Future improvements
+- [ ] Add yeoman generator
