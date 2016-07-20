@@ -1,32 +1,28 @@
 # Guidebook
-> Styleguide boilerplate
+> Styleguide generator
 
 [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/benoitdeziel/guidebook)
 
-### Getting started
+> THIS GENERATOR IS STILL IN DEVELOPMENT, EXPECT THINGS TO CHANGE IN A NEAR FUTURE
 
-Run the styleguide
-```
-styleguide:dev
-```
+## Getting started
 
-Deploy the styleguide to github pages &mdash; *experimental*
-```
-styleguide:deploy
-```
+> Not yet available
 
-Create a new pattern or template &mdash; *experimental*
+`npm install --save guidebook`
+
+In your gulpfile
+
 ```
-styleguide:new
+var guidebook = require('guidebook');
 ```
 
-To contribute
+Create a task for running the styleguide
+
 ```
-npm start
+gulp.task('styleguide', guidebook(options));
 ```
 
-### TODO
-- [ ] Implement [conventional changelog](https://github.com/gulpjs/gulp/blob/master/docs/recipes/automate-release-workflow.md)
+## Options
 
-### Future improvements
-- [ ] Add yeoman generator
+> Coming soon
