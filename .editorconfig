@@ -1,5 +1,5 @@
 #editorconfig.org
 
 [*]
-indent-size = 4
-indent-style = space
+indent_size = 4
+indent_style = space

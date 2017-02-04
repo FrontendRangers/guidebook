@@ -27,9 +27,7 @@ function styleguideDocsTask(userOptions) {
         .clean(false)
         .source(options.path.src.pages)
         .destination(options.path.dest.pages)
-        .use(msIgnore([
-            "assets/*"
-        ]))
+        .use(msIgnore(options.path.src.ignore))
         .destination(options.path.dest.pages)
         .metadata(options.metadata)
         .use(msCollections(options.collections))
@@ -50,9 +48,6 @@ function styleguideDocsTask(userOptions) {
             directory: options.path.src.layouts,
             default: 'default.html',
             partials: options.path.src.partials
-        }))
-        .use(msInPlace({
-            engine: 'handlebars'
         }));
 
     m.build(function(error) {

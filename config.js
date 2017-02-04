@@ -23,25 +23,14 @@ module.exports = {
             }
         },
         collections: {
-            getting_started: {
-                pattern: 'getting_started/*.md'
-            },
-            base: {
-                pattern: 'base/*.md'
-            },
             components: {
-                pattern: 'components/*.md'
-            },
-            modules: {
-                pattern: 'modules/*.md'
-            },
-            templates: {
-                pattern: 'templates/*.html'
+                pattern: 'components/**/*.md'
             }
         },
         path: {
             root: process.cwd(),
             src: {
+                ignore: [],
                 pages: './src/docs',
                 layouts: path.relative(process.cwd(), LAYOUTS_PATH),
                 partials: path.relative(process.cwd(), PARTIALS_PATH),
