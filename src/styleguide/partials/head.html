@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <title>{{ title }} | {{ site.name }}</title>
   <link rel="stylesheet" href="{{rootPath}}styleguide/styles/guidebook.css">
-  <link rel="stylesheet" href="{{rootPath}}{{ site.css }}">
+  {{#each site.css}}
+  <link rel="stylesheet" href="{{rootPath}}{{ this }}">
+  {{/each}}
 </head>
 
 <body class="sg">

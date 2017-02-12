@@ -1,10 +1,15 @@
 {
   "name": "guidebook",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A styleguide boilerplate.",
   "main": "index.js",
   "scripts": {
     "start": "npm install",
+    "predev": "rimraf build/*",
+    "dev": "babel-node src/index.js",
+    "clean": "rimraf dist/*",
+    "prebuild": "npm run clean",
+    "build": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Benoit Deziel",
@@ -14,31 +19,31 @@
     "url": "https://github.com/FrontEndRanger/guidebook.git"
   },
   "dependencies": {
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-conflict": "^0.4.0",
-    "gulp-if": "^2.0.2",
-    "gulp-inject-string": "^1.1.0",
-    "gulp-rename": "1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-template": "^4.0.0",
-    "gulp-util": "^3.0.8",
+    "autoprefixer": "^6.7.2",
+    "bluebird": "^3.4.7",
+    "consolidate": "^0.14.5",
+    "fs-extra": "^2.0.0",
+    "globby": "^6.1.0",
     "handlebars": "^4.0.6",
     "highlight.js": "^9.9.0",
     "lodash": "^4.17.4",
-    "marked": "^0.3.6",
-    "metalsmith": "^2.3.0",
-    "metalsmith-collections": "^0.9.0",
-    "metalsmith-headings": "^0.1.0",
-    "metalsmith-ignore": "^0.1.2",
-    "metalsmith-in-place": "^2.0.1",
-    "metalsmith-layouts": "^1.8.0",
-    "metalsmith-markdown": "^0.2.1",
-    "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-register-helpers": "^0.2.0",
-    "metalsmith-rootpath": "^1.0.4",
-    "string-template": "^1.0.0"
+    "node-sass": "^4.5.0",
+    "postcss": "^5.2.12",
+    "postcss-scss": "^0.4.0",
+    "precss": "^1.4.0",
+    "rimraf": "^2.5.4",
+    "gray-matter": "^2.1.0",
+    "markdown-it": "^8.2.2"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "babel-cli": "^6.22.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2017": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "commitizen": "^2.9.5",
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0"
   }
 }

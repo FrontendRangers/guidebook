@@ -3,36 +3,39 @@
 // v1.0.0
 // ==========================================================================
 
-@import 'syntax';
+@import '_normalize.scss';
+@import '_syntax.scss';
 
 //
 // Variables
 // ==========================================================================
 
-$sg-header-bg-color: #427DC2 !default;
-$sg-sidebar-bg-color: #3B5069 !default;
-$sg-content-bg-color: #ffffff !default;
-$sg-intro-bg-color: #f9f9f9 !default;
-$sg-footer-bg-color: #F4F4F4 !default;
+$base-unit: 8px;
 
-$sg-heading-color: #73797E !default;
-$sg-heading-font: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
-$sg-text-color: #323B43 !default;
-$sg-text-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$header-bg-color: #427DC2;
+$sidebar-bg-color: #3B5069;
+$content-bg-color: #ffffff;
+$intro-bg-color: #f9f9f9;
+$footer-bg-color: #F4F4F4;
 
-$sg-border-color: #eee !default;
+$heading-color: #73797E;
+$heading-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$text-color: #323B43;
+$text-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$sg-title-color: #fff !default;
+$border-color: #eee;
 
-$sg-padding: 1.5em !default;
+$title-color: #fff;
+
+$padding: $base-unit * 4;
 
 //
 // Globals
 // ==========================================================================
 
 %sg-font-common {
-    font-family: $sg-text-font;
-    color: $sg-text-color;
+    font-family: $text-font;
+    color: $text-color;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -62,8 +65,8 @@ $sg-padding: 1.5em !default;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: ($sg-padding / 2) $sg-padding;
-    background-color: $sg-header-bg-color;
+    padding: ($padding / 2) $padding;
+    background-color: $header-bg-color;
 }
 
 .sg-main {
@@ -74,8 +77,8 @@ $sg-padding: 1.5em !default;
 
 .sg-footer {
     @extend %sg-font-common;
-    padding: ($sg-padding / 2) $sg-padding;
-    background-color: $sg-footer-bg-color;
+    padding: ($padding / 2) $padding;
+    background-color: $footer-bg-color;
     color: #aeaeae;
 }
 
@@ -86,13 +89,13 @@ $sg-padding: 1.5em !default;
 .sg-title {
     @extend %sg-font-common;
     font-size: 1.5rem;
-    color: $sg-title-color;
+    color: $title-color;
     font-weight: 500;
     margin: 0;
 }
 
 .sg-version {
-    color: $sg-title-color;
+    color: $title-color;
     margin: 0 1em;
 }
 
@@ -101,9 +104,9 @@ $sg-padding: 1.5em !default;
 // ==========================================================================
 
 .sg-sidebar {
-    min-width: 260px;
-    padding: $sg-padding;
-    background-color: $sg-sidebar-bg-color;
+    width: $base-unit * 33;
+    padding: $padding;
+    background-color: $sidebar-bg-color;
     @media screen and (max-width: 640px) {
         order: 2;
         position: fixed;
@@ -120,7 +123,7 @@ $sg-padding: 1.5em !default;
     list-style: none;
 
     .sg-nav-item {
-        font-family: $sg-heading-font;
+        font-family: $heading-font;
         margin-bottom: 1.5rem;
     }
 }
@@ -130,7 +133,7 @@ $sg-padding: 1.5em !default;
     list-style: none;
 
     .sg-subnav-item {
-        font-family: $sg-heading-font;
+        font-family: $heading-font;
         color: #fff;
         font-size: 1rem;
         line-height: 1.75;
@@ -160,16 +163,16 @@ $sg-padding: 1.5em !default;
     flex-direction: column;
     flex: 1 1 auto;
     max-width: 100%;
-    background-color: $sg-content-bg-color;
+    background-color: $content-bg-color;
 }
 
 .sg-intro {
-    padding: $sg-padding;
-    background-color: $sg-intro-bg-color;
+    padding: $padding;
+    background-color: $intro-bg-color;
 }
 
 .sg-page-title {
-    font-family: $sg-heading-font;
+    font-family: $heading-font;
     font-weight: 700;
     color: #73797e;
     font-size: 3rem;
@@ -182,14 +185,14 @@ $sg-padding: 1.5em !default;
 }
 
 .sg-page-subtitle {
-    font-family: $sg-text-font;
+    font-family: $text-font;
     font-size: 1.375rem;
     margin: 1rem 0 1rem 0;
     line-height: 1.3;
 }
 
 .sg-page-description {
-    font-family: $sg-text-font;
+    font-family: $text-font;
 }
 
 .sg-status {
@@ -220,13 +223,13 @@ $sg-padding: 1.5em !default;
         flex-direction: row;
         list-style: none;
         margin: 0;
-        padding: ($sg-padding / 2) $sg-padding;
+        padding: ($padding / 2) $padding;
 
         li {
             padding: 0 1rem 0 0;
 
             a {
-                font-family: $sg-heading-font;
+                font-family: $heading-font;
                 color: #6c6c6c;
                 text-decoration: none;
             }
@@ -235,7 +238,7 @@ $sg-padding: 1.5em !default;
 }
 
 .sg-section {
-    padding: $sg-padding;
+    padding: $padding;
 }
 
 //
@@ -254,7 +257,7 @@ h1.sg-heading {
 
 h2.sg-heading {
     font-size: 2rem;
-    border-bottom: 1px solid rgba($sg-text-color, .1);
+    border-bottom: 1px solid rgba($text-color, .1);
 }
 
 h3.sg-heading {
@@ -262,7 +265,7 @@ h3.sg-heading {
 }
 
 p.sg-text {
-    font-family: $sg-text-font;
+    font-family: $text-font;
 }
 
 //
@@ -272,8 +275,8 @@ p.sg-text {
 .sg-code {
     padding: 0 0.5em;
     display: inline-block;
-    color: $sg-header-bg-color;
-    border: 1px solid $sg-header-bg-color;
+    color: $header-bg-color;
+    border: 1px solid $header-bg-color;
     background-color: #fff;
     vertical-align: baseline;
     border-radius: 3px;
@@ -293,7 +296,7 @@ p.sg-text {
     display: block;
     padding: 2em;
     &.sg-bgDark {
-        background-color: $sg-sidebar-bg-color;
+        background-color: $sidebar-bg-color;
     }
 }
 
@@ -370,7 +373,7 @@ p.sg-text {
     margin-bottom: 3rem;
 
     tr {
-        border-bottom: 1px solid $sg-border-color;
+        border-bottom: 1px solid $border-color;
     }
 
     th,
