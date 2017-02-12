@@ -13,11 +13,13 @@ function buildMarkup(options) {
         files => {
             files.map(file => {
                 // TODO: Get markup template from config
-                let contents = compilers.pages(file, 'markup.html', options);
                 // TODO: Get build directory from config
-                let filename = path.resolve('build', file);
-                fs.outputFile(filename, contents, 'utf-8', (err) => {
-                    if (err) throw err;
+                
+                compilers.pages(file, 'markup.html', options).then(contents => {
+                    let filename = path.resolve('build', file);
+                    fs.outputFile(filename, contents, 'utf-8', (err) => {
+                        if (err) throw err;
+                    });
                 });
             });
         }
