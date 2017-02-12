@@ -54,3 +54,5 @@ npm run test
 - [ ] Find a way to change rendering of Markdown (add Guidebook classes)
 - [ ] Write tests
 - [ ] Add tests coverage
+- [ ] Add better logs
+- [ ] Add engine config (Consolidate)
